@@ -28,10 +28,12 @@ public class Program
         IJSONAPI mashapi = new MashapeAPI();
 
         // Nutrition n = await mashapi.GetData<Nutrition>("cheddar cheese", "APIKEY");
-        // Console.WriteLine(mashapi.ToJSON(n));
+        // Console.WriteLine(mashapi.ToJSON(n));  Gaucho: get JSON should work across
+        //all child classes
 
-        // IJSONAPI googapi = new GoogleAPI();
-        // Google g = await googapi.GetData<Google>("tacos", "APIKEY");
+        // IJSONAPI googapi = new GoogleAPI();   ea. API will either have a header info(use) Postman
+                                                                        //if header required.
+        // Google g = await googapi.GetData<Google>("tacos", "APIKEY"); //google: no header, api key appended to end.
         // Console.WriteLine(googapi.ToJSON(g));
     }
 }
