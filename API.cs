@@ -5,6 +5,12 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Net.Http;
 
+
+// all data structures are IEnumerables and can use applicable extension methods. 
+// interfaces will always expect a return type
+// implicitly non-static and public
+
+//internal is the standard for interfaces unless you want others to be able to use it
 internal interface IJSONAPI {
     Task<string> GetJSON(string term, string key);
     Task<T> GetData<T>(string term, string key);
@@ -23,7 +29,7 @@ internal class MashapeAPI : IJSONAPI {
 
     public string urlFormat(string term) =>
         $"https://nutritionix-api.p.mashape.com/v1_1/search/{term}?fields={String.Join(",", fields)}";
-
+    // adds key into the header in mashape API
     public async Task<string> GetJSON(string term, string key){
         var http = new HttpClient();
         var request = new HttpRequestMessage(HttpMethod.Get, urlFormat(term));
@@ -44,7 +50,7 @@ internal class MashapeAPI : IJSONAPI {
     }
 
 }
-
+// you can override inheritance but not interfaces
 internal class GoogleAPI : IJSONAPI {
     public string urlFormat(string term, string key) =>
         $"https://maps.googleapis.com/maps/api/geocode/json?address={term}&key={key}";
