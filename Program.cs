@@ -25,8 +25,12 @@ public class Program
         ");
         
         string term = Console.ReadLine();
-        IJSONAPI mashapi = new MashapeAPI();
-
+        IJSONAPI mashUrl = new MashapeAPI();
+        
+        string key = "49rhltbtvSmshKivQd2EvXliQ0Zrp1vCsZ5jsnVtER81HAflRg";
+        
+        Nutrition data = await mashUrl.GetData<Nutrition>(term, key);
+        Console.WriteLine(data);
         // Nutrition n = await mashapi.GetData<Nutrition>("cheddar cheese", "APIKEY");
         // Console.WriteLine(mashapi.ToJSON(n));  Gaucho: get JSON should work across
         //all child classes
