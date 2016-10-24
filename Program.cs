@@ -30,7 +30,8 @@ public class Program
         
         
         Nutrition data = await mashUrl.GetData<Nutrition>(term, key);
-        Console.WriteLine(data);
+        string result = data.nutrition.ToString();
+        Console.WriteLine();
         // Nutrition n = await mashapi.GetData<Nutrition>("cheddar cheese", "APIKEY");
         // Console.WriteLine(mashapi.ToJSON(n));  Gaucho: get JSON should work across
         //all child classes
