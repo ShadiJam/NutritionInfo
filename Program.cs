@@ -25,9 +25,9 @@ public class Program
         ");
         
         string term = Console.ReadLine();
+        string key = "49rhltbtvSmshKivQd2EvXliQ0Zrp1vCsZ5jsnVtER81HAflRg";
         IJSONAPI mashUrl = new MashapeAPI();
         
-        string key = "49rhltbtvSmshKivQd2EvXliQ0Zrp1vCsZ5jsnVtER81HAflRg";
         
         Nutrition data = await mashUrl.GetData<Nutrition>(term, key);
         Console.WriteLine(data);
